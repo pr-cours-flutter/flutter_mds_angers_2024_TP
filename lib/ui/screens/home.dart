@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mds_angers_2024_b3/models/address.dart';
 import 'package:flutter_mds_angers_2024_b3/models/company.dart';
 import 'package:flutter_mds_angers_2024_b3/router.dart';
 
@@ -11,9 +12,9 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   final _companies = <Company>[
-    const Company('Entreprise 1'),
-    const Company('Entreprise 2'),
-    const Company('Entreprise 3'),
+    const Company('Entreprise 1', Address('street', 'city', 'postcode')),
+    const Company('Entreprise 2', Address('street', 'city', 'postcode')),
+    const Company('Entreprise 3', Address('street', 'city', 'postcode')),
   ];
 
   @override
@@ -28,7 +29,7 @@ class _HomeState extends State<Home> {
           final company = _companies[index];
           return ListTile(
             title: Text(company.name),
-            subtitle: const Text('Adresse'),
+            subtitle: Text(company.address.toString()),
             leading: const Icon(Icons.account_box_outlined),
             trailing: const Icon(Icons.arrow_forward_ios),
             onTap: () {},
