@@ -31,7 +31,7 @@ class _SearchAddressState extends State<SearchAddress> {
                 labelText: 'Adresse de l\'entreprise',
               ),
               onChanged: (value) async {
-                if (value.length >= 3) {
+                if (value.trim().length >= 3) {
                   final addresses = await _addressRepository.fetchAddresses(value);
                   setState(() {
                     _addresses.clear();

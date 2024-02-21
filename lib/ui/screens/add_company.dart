@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_mds_angers_2024_b3/blocs/company_cubit.dart';
 import 'package:flutter_mds_angers_2024_b3/models/address.dart';
 import 'package:flutter_mds_angers_2024_b3/models/company.dart';
 import 'package:flutter_mds_angers_2024_b3/router.dart';
@@ -77,7 +79,8 @@ class _AddCompanyState extends State<AddCompany> {
                     if ((formKey.currentState?.validate() ?? false) && _address != null) {
                       final name = nameController.text;
                       final company = Company(name, _address!);
-                      Navigator.of(context).pop(company);
+                      context.read<CompanyCubit>().addCompany(company);
+                      Navigator.of(context).pop();
                     }
                   },
                   child: const Text('Valider')),
