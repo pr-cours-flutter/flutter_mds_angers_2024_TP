@@ -25,6 +25,7 @@ class _SearchAddressState extends State<SearchAddress> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextField(
+              autofocus: true,
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
                 prefixIcon: Icon(Icons.location_on),
